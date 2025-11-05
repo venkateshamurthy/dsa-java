@@ -11,7 +11,8 @@ public class WordAbbreviation {
                 a++; w++;
             }
             //if all done then return true;
-            if (w == W ) return true;
+            if (w == W && a == A) return true;
+            if (w == W || a == A) return false;
 
             //chars mismatch
             if(a<A && isLetter(abbr.charAt(a)) && word.charAt(w)!=abbr.charAt(a))
@@ -27,6 +28,7 @@ public class WordAbbreviation {
                 int d = digit(abbr.charAt(a++),10);
                 digit = 10 * digit + d;
             }
+            if(w + digit >= W) return false;
             w += digit;
         }
 
@@ -42,5 +44,6 @@ public class WordAbbreviation {
                 "W3S6g in the i18n world is l10n a4d"));
         System.out.println("expecting false:"+s.isAbbreviation("WordSmithing in the internationalization world is localization abused",
                 "W03S6g in the i18n world is l10n abused"));
+        System.err.println("expecting false:"+s.isAbbreviation("s","s11"));
     }
 }
