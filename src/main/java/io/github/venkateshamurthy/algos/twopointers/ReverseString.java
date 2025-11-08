@@ -1,7 +1,6 @@
 package io.github.venkateshamurthy.algos.twopointers;
 
 import java.util.Arrays;
-import java.util.Objects;
 
 public class ReverseString {
     public char[] reverseChars(char[] chars) {
@@ -16,6 +15,6 @@ public class ReverseString {
         return chars;
     }
     public String reverseString(String s) {
-        return new String(reverseChars(s.toCharArray()));
+        return Arrays.toString(reverseChars(s.toCharArray()));
     }
 }

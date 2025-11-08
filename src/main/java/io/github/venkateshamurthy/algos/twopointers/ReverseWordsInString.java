@@ -6,20 +6,20 @@ import static io.github.venkateshamurthy.Utils.swapRange;
 public class ReverseWordsInString {
     public static String reverse(String  sentence){
         char[] arr = sentence.toCharArray();
-        int left = 0, right = 0;
 
         swapRange(arr, 0, arr.length - 1);
         System.out.println("Reversed totally  :-->"+new String(arr));
 
+        int left = 0, right = 0;
         while( right < arr.length - 1 ) {
-            // Find and increase right till white space comes
-            while(right < arr.length - 1 && arr[right] != ' ') right++;
+            // Find and increase right till white space comes or till end
+            while(right < arr.length && arr[right] != ' ') right++;
 
             //then reverse this segment (or word only); because right is at whitespace
             swapRange(arr, left, right - 1);
 
-            // now scan all whitespaces until you get a letter
-            while(right < arr.length - 1 && arr[right] == ' ') right++;
+            // now scan all whitespaces until you get a letter or till end
+            while(right < arr.length && arr[right] == ' ') right++;
 
             //start with left and right at same point
             left = right;
@@ -29,6 +29,8 @@ public class ReverseWordsInString {
     }
 
     public static void main(String[] args) {
-        System.out.println("Reverse words only:-->"+reverse("I   am very nice   to meet   you all this time"));
+        String sentence = "";
+        System.out.println("Forward words only:-->"+sentence);
+        System.out.println("Reverse words only:-->"+reverse(sentence));
     }
 }

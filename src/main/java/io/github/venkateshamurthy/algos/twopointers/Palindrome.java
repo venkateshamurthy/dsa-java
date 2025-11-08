@@ -2,18 +2,25 @@ package io.github.venkateshamurthy.algos.twopointers;
 
 public class Palindrome {
     public boolean isPalindrome(String s) {
-        int left = 0, right = s.length()-1;
-        while (left++ < right--)
-            if(s.charAt(left) != s.charAt(right))
+        //kuravaruk
+        // len:9 index:0-8
+        int left = 0, right = s.length() - 1;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right))
                 return false;
+            left++; right--;
+        }
+
         return true;
     }
 
     public boolean isPalindrome(char[] s) {
-        int left = 0, right = s.length-1;
-        while (left++ < right--)
-            if(s[left] != s[right])
+        int left = 0, right = s.length - 1;
+        while (left < right) {
+            if (s[left] != s[right])
                 return false;
+            left++; right--;
+        }
         return true;
     }
     public static void main(String[] args) {

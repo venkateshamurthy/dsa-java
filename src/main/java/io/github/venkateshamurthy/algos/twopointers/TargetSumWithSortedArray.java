@@ -5,21 +5,14 @@ import org.slf4j.LoggerFactory;
 
 // https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
 public class TargetSumWithSortedArray {
-
     static Logger log = LoggerFactory.getLogger(TargetSumWithSortedArray.class);
-
     /** numbers are sorted. and given a target find the indexes.*/
     public int[] twoSum(int[] numbers, int target) {
         int i = 0, j = numbers.length - 1;
-
-        while ( i < j ) {                 // i cannot bethe same as j as otherwise its the same number
-
-            long sum = numbers[i] + numbers[j]; // remember to keep the sum in a long as sum might exceed int boundary
-
-            if      (sum > target)  j-- ;   // so move j to left
-
-            else if (sum < target)  i++ ;   // so move i to right
-
+        while ( i < j ) {                         // i cannot bethe same as j as otherwise its the same number
+            long sum = numbers[i] + numbers[j];   // remember to keep the sum in a long as sum might exceed int boundary
+            if      (sum > target)  j-- ;         // so move j to left
+            else if (sum < target)  i++ ;         // so move i to right
             else return new int[]{i + 1, j + 1};  // all good return i and j with unit based indexing
         }
         return null;         // not good ; so return -1s or null
@@ -28,11 +21,11 @@ public class TargetSumWithSortedArray {
     public int[] twoSumByForLoop(int[] numbers, int target) {
         for(int i = 1, j = numbers.length; i < j;) {
             long sum = numbers[i - 1] + numbers[j - 1]; // remember to keep the sum in a long as sum might exceed int boundary
-            if (sum > target)      j--;   // so move j to left
-            else if (sum < target) i++;   // so move i to right
-            else return new int[]{i, j};  // all good return i and j
+            if      (sum > target) j--;                 // so move j to left
+            else if (sum < target) i++;                 // so move i to right
+            else return new int[]{i, j};                // all good return i and j with zer based index
         }
-        return null;         // not good ; so return -1s or null
+        return null;                                    // not good ; so return -1s or null
     }
 
 

@@ -23,7 +23,7 @@ public class Utils {
         while(left < right) swap(arr, left++, right--);
     }
 
-    public static void swapRange(int[] arr, int left, int right){
+    public static void swapRange(int[]  arr, int left, int right){
         while(left < right) swap(arr, left++, right--);
     }
 }
